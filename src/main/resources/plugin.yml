@@ -1,0 +1,15 @@
+name: MFG-Authenticator
+main: com.github.bluspring.mfg.authenticator.Init
+version: 1.2-SNAPSHOT
+api-version: '1.16'
+author: BluSpring
+commands:
+  register:
+    description: Registers your account for the server.
+    usage: "§cAuthenticator §a>> §cInvalid usage! Usage: §b/register <password> <confirm_password>"
+  login:
+    description: Logs into your account for the server.
+    usage: "§cAuthenticator §a>> §cInvalid usage! Usage: §b/login <password>"
+  reset-password:
+    description: Resets an account's password. This can only be used by the console.
+    usage: "§cAuthenticator §a>> §cInvalid usage! Usage: §b/reset-password <username> <password>"

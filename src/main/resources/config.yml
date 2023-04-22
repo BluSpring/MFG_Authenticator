@@ -1,0 +1,42 @@
+############################
+# MFG-Authenticator Config #
+############################
+
+# DO NOT TOUCH THIS VALUE!
+config-version: '1.0'
+
+# Authentication Types
+# OFF - Allow all players in without password
+# OFFLINE_PASS - Requires offline players to type in a password
+# ONLINE_PASS - Requires online players to type in a password (doesn't exactly make sense but I'm doing it anyway XD)
+# ALL_PASS - Requires all players to type in a password
+authentication-type: 'OFFLINE_PASS'
+
+# Allows an IP to be saved, and allow the player if on the same IP to log back in without requiring a password.
+# Times out by {remember-ip-timeout}. Default is 14400000, which is 4 hours in milliseconds.
+# This doesn't work if the authentication type is OFF.
+remember-ip: true
+remember-ip-timeout: 14400000
+
+# Where logins should be saved, and a fallback for when the database is unavailable
+# Fallback is an array because it should have multiple values so if the first fallback fails it can move on to another one.
+database:
+  default: # Default database
+    type: 'SQLITE' # Types : SQLITE, MONGO and YAML. Defaults to MONGO.
+    file: 'database.sqlite'
+  fallback:
+    - type: 'YAML'
+      file: 'database.yml'
+
+# If the type is SQLITE, it should look like this:
+# type: 'SQLITE'
+# file: 'database.sqlite'
+
+# If the type is MONGO, it should look like this:
+# type: 'MONGO'
+# connection-uri: 'mongodb://<username>:<password>@<host>:<port>/[authdb]'
+
+# If the type is YAML, it should look like this:
+# type: 'YAML'
+# file: 'database.yml'
+

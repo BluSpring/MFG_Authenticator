@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.21'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.21'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+group 'com.github.bluspring'
+version '1.3-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'papermc'
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+    flatDir {
+        dirs 'libs'
+    }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://repo.dmulloy2.net/nexus/repository/public/" }
+    maven { url "https://jitpack.io" }
+    maven { url "https://repo.codemc.org/repository/maven-public/" }
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.21'
+    implementation group: 'com.charleskorn.kaml', name: 'kaml', version: '0.35.3'
+    compileOnly group: 'io.papermc.paper', name: 'paper-api', version: '1.17-R0.1-SNAPSHOT'
+    //implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.2.2"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "16"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "16"
+}
+/*
+configurations {
+    implementation.exclude module: 'patched_1.16.1'
+}*/
